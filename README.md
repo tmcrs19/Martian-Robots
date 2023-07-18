@@ -1,20 +1,16 @@
 Martian Robots
+==============
 
-How to run:
+Prerequisites:
+[Node.js](http://nodejs.org/) and [npm](http://npmjs.org/)
 
-	yarn
-    yarn dev
 
-    or
+You can run code with:
 
-    npm i
+	npm install
     npm run dev
 
-You can run tests with:
-
-    yarn test
-
-    or
+You can run the tests with:
 
     npm run test
 
