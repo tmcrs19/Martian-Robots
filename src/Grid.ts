@@ -1,4 +1,4 @@
-type DirectionType = "N" | "S" | "E" | "W";
+type Direction = "N" | "S" | "E" | "W";
 
 function createGrid(
   maxx: number = 0,
@@ -6,22 +6,22 @@ function createGrid(
   minx: number = 0,
   miny: number = 0
 ): {
-  ifLostHere: (x: number, y: number, direction: DirectionType) => boolean;
-  markLost: (x: number, y: number, direction: DirectionType) => void;
-  ifHasRoomToMove: (x: number, y: number, direction: DirectionType) => boolean;
+  ifLostHere: (x: number, y: number, direction: Direction) => boolean;
+  markLost: (x: number, y: number, direction: Direction) => void;
+  ifHasRoomToMove: (x: number, y: number, direction: Direction) => boolean;
 } {
   const lostPositions: string[] = [];
 
-  function generateKey(x: number, y: number, direction: DirectionType): string {
+  function generateKey(x: number, y: number, direction: Direction): string {
     return `${x}:${y}:${direction}`;
   }
 
-  function ifLostHere(x: number, y: number, direction: DirectionType): boolean {
+  function ifLostHere(x: number, y: number, direction: Direction): boolean {
     const key = generateKey(x, y, direction);
     return lostPositions.includes(key);
   }
 
-  function markLost(x: number, y: number, direction: DirectionType): void {
+  function markLost(x: number, y: number, direction: Direction): void {
     const key = generateKey(x, y, direction);
     lostPositions.push(key);
   }
@@ -29,7 +29,7 @@ function createGrid(
   function ifHasRoomToMove(
     x: number,
     y: number,
-    direction: DirectionType
+    direction: Direction
   ): boolean {
     if (x < minx || x > maxx || y < miny || y > maxy) {
       return false;
@@ -52,4 +52,4 @@ function createGrid(
   return { ifLostHere, markLost, ifHasRoomToMove };
 }
 
-export { createGrid, DirectionType };
+export { createGrid, Direction };
