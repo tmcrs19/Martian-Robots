@@ -11,7 +11,6 @@ let instructions = "";
 
 try {
   array = fs.readFileSync(inputFilePath).toString().split("\n");
-  console.log(array);
   mission = createMarsMission(array);
 
   robot = mission.nextRobot();
